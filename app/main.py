@@ -1,10 +1,11 @@
 """Main FastAPI application."""
 import logging
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import router
 from app.services.pinecone_service import pinecone_service
+from app.mcp_server import PineconeScoutMCPServer
 from app.config import settings
 
 # Configure logging
@@ -65,4 +66,50 @@ async def root():
 async def health():
     """Health check endpoint."""
     return {"status": "healthy"}
+
+
+# MCP Server HTTP endpoint for ChatGPT
+mcp_server_instance = PineconeScoutMCPServer()
+
+
+@app.post("/mcp")
+async def handle_mcp(request: Request):
+    """
+    Handle MCP (Model Context Protocol) requests via HTTP.
+    This endpoint allows ChatGPT to communicate with the MCP server over HTTP.
+    """
+    try:
+        body = await request.json()
+        response = await mcp_server_instance.handle_request(body)
+        return response
+    except Exception as e:
+        logging.error(f"Error handling MCP request: {e}", exc_info=True)
+        return {
+            "jsonrpc": "2.0",
+            "id": body.get("id") if isinstance(body, dict) else None,
+            "error": {
+                "code": -32603,
+                "message": f"Internal error: {str(e)}"
+            }
+        }
+
+
+@app.get("/mcp")
+async def mcp_info():
+    """
+    Return MCP server information and available tools.
+    ChatGPT may call this to discover available tools.
+    """
+    from app.mcp_server import TOOLS
+    return {
+        "name": "Pinecone Scout MCP Server",
+        "version": "1.0.0",
+        "tools": [
+            {
+                "name": tool["name"],
+                "description": tool.get("description", "")
+            }
+            for tool in TOOLS
+        ]
+    }
 

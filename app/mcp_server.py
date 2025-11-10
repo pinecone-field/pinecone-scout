@@ -7,7 +7,11 @@ from app.config import settings
 
 
 # Backend API base URL
-BACKEND_URL = f"http://localhost:{settings.port}/api"
+# Use backend_url from settings if provided, otherwise default to localhost
+if settings.backend_url:
+    BACKEND_URL = settings.backend_url
+else:
+    BACKEND_URL = f"http://localhost:{settings.port}/api"
 
 
 # Tool definitions
