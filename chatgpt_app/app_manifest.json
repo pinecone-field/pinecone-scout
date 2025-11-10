@@ -1,0 +1,38 @@
+{
+  "name": "Pinecone Scout",
+  "description": "AI-powered product recommendation system with personalized suggestions based on user preferences and collaborative filtering",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "homepage": "https://github.com/yourusername/pinecone-scout",
+  "icon": "https://your-domain.com/icon.png",
+  "categories": ["shopping", "recommendations", "e-commerce"],
+  "tools": [
+    {
+      "name": "recommend",
+      "description": "Generate product recommendations based on user query"
+    },
+    {
+      "name": "submit_feedback",
+      "description": "Submit like/dislike feedback for recommendations"
+    },
+    {
+      "name": "get_user_profile",
+      "description": "Retrieve user profile and preferences"
+    },
+    {
+      "name": "predictive_suggest",
+      "description": "Get contextual suggestions based on conversation"
+    }
+  ],
+  "ui": {
+    "component": "index.html",
+    "width": "800px",
+    "height": "600px"
+  },
+  "privacy": {
+    "dataCollection": "User preferences and feedback are stored to improve recommendations",
+    "dataSharing": "No data is shared with third parties",
+    "dataRetention": "User data is retained until account deletion"
+  }
+}
+

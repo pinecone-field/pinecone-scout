@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinecone Scout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-icon {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .recommendations-container {
+            background: white;
+            padding: 24px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommendation-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+        }
+
+        .recommendation-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .recommendation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+        }
+
+        .recommendation-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+
+        .recommendation-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .recommendation-rationale {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .recommendation-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-liked {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .badge-popular {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .recommendation-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-like {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-like:hover {
+            background: #45a049;
+        }
+
+        .btn-dislike {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-dislike:hover {
+            background: #da190b;
+        }
+
+        .btn-view {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-view:hover {
+            background: #d0d0d0;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .predictive-suggestion {
+            background: #fff9c4;
+            border-left: 4px solid #fbc02d;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+        }
+
+        .predictive-suggestion-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #f57f17;
+        }
+
+        .sponsored-label {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Pinecone Scout</h1>
+            <div class="header-actions">
+                <button class="btn-icon" onclick="openSettings()" title="Settings">⚙️</button>
+                <button class="btn-icon" onclick="openInfo()" title="Info">ℹ️</button>
+            </div>
+        </div>
+        
+        <div class="recommendations-container">
+            <div id="predictive-suggestion" style="display: none;"></div>
+            <div id="recommendations-list">
+                <div class="empty-state">
+                    <div class="empty-state-icon">🔍</div>
+                    <p>Start a conversation with ChatGPT to get recommendations!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize OpenAI Apps SDK connection
+        if (typeof window.openai !== 'undefined') {
+            window.openai.onToolCall((toolName, args) => {
+                console.log('Tool called:', toolName, args);
+                // Handle tool calls from ChatGPT
+            });
+        }
+
+        // Function to render recommendations
+        function renderRecommendations(recommendations, userContext) {
+            const container = document.getElementById('recommendations-list');
+            
+            if (!recommendations || recommendations.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <p>No recommendations found. Try a different search!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            
+            if (userContext && userContext.memory_recall) {
+                html += `<div class="predictive-suggestion">
+                    <div class="predictive-suggestion-header">💡 ${userContext.memory_recall}</div>
+                </div>`;
+            }
+
+            recommendations.forEach((rec, index) => {
+                html += `
+                    <div class="recommendation-card" data-item-id="${rec.item_id}">
+                        <div class="recommendation-header">
+                            <div class="recommendation-title">${rec.name}</div>
+                            <div class="recommendation-price">$${rec.price.toFixed(2)}</div>
+                        </div>
+                        <div class="recommendation-rationale">${rec.rationale}</div>
+                        <div class="recommendation-badges">
+                            ${rec.similarity_score > 0.8 ? '<span class="badge badge-liked">⭐ High Match</span>' : ''}
+                            ${rec.similar_user_signal ? '<span class="badge badge-popular">🔥 Popular</span>' : ''}
+                        </div>
+                        <div class="recommendation-actions">
+                            <button class="btn btn-like" onclick="submitFeedback('${rec.item_id}', 'like')">
+                                👍 Like
+                            </button>
+                            <button class="btn btn-dislike" onclick="submitFeedback('${rec.item_id}', 'dislike')">
+                                👎 Dislike
+                            </button>
+                            <button class="btn btn-view" onclick="viewDetails('${rec.item_id}')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Function to render predictive suggestion
+        function renderPredictiveSuggestion(suggestion) {
+            const container = document.getElementById('predictive-suggestion');
+            
+            if (!suggestion) {
+                container.style.display = 'none';
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="predictive-suggestion">
+                    <div class="predictive-suggestion-header">💡 Suggestion</div>
+                    <p>${suggestion.text}</p>
+                    ${suggestion.is_sponsored ? '<div class="sponsored-label">[Sponsored]</div>' : ''}
+                    <div class="recommendation-actions" style="margin-top: 12px;">
+                        <button class="btn btn-view" onclick="learnMore('${suggestion.partner || ''}')">
+                            Learn More
+                        </button>
+                        <button class="btn btn-dislike" onclick="notInterested()">
+                            Not Interested
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.style.display = 'block';
+        }
+
+        // Function to show loading state
+        function showLoading() {
+            const container = document.getElementById('recommendations-list');
+            container.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Finding the perfect recommendations for you...</p>
+                </div>
+            `;
+        }
+
+        // Function to submit feedback
+        async function submitFeedback(itemId, feedbackType) {
+            try {
+                // Get user_id from ChatGPT context (this would be provided by the SDK)
+                const userId = window.openai?.getUserId?.() || 'default_user';
+                
+                if (typeof window.openai !== 'undefined' && window.openai.callTool) {
+                    await window.openai.callTool('submit_feedback', {
+                        user_id: userId,
+                        item_id: itemId,
+                        feedback_type: feedbackType
+                    });
+                    
+                    // Show confirmation
+                    alert(feedbackType === 'like' ? '👍 Thanks! We\'ve saved your preference.' : '👎 Noted! We\'ll avoid similar items.');
+                } else {
+                    console.log('Feedback submitted:', { itemId, feedbackType });
+                }
+            } catch (error) {
+                console.error('Error submitting feedback:', error);
+                alert('Error submitting feedback. Please try again.');
+            }
+        }
+
+        // Function to view details
+        function viewDetails(itemId) {
+            console.log('View details for:', itemId);
+            // This would open a detail view or call ChatGPT to get more info
+            if (typeof window.openai !== 'undefined' && window.openai.sendMessage) {
+                window.openai.sendMessage(`Tell me more about item ${itemId}`);
+            }
+        }
+
+        // Function to learn more about predictive suggestion
+        function learnMore(partner) {
+            console.log('Learn more about:', partner);
+            // Handle learn more action
+        }
+
+        // Function for not interested
+        function notInterested() {
+            document.getElementById('predictive-suggestion').style.display = 'none';
+        }
+
+        // Settings and info functions
+        function openSettings() {
+            console.log('Open settings');
+            // Open settings modal or navigate to settings
+        }
+
+        function openInfo() {
+            console.log('Open info');
+            // Show info/about modal
+        }
+
+        // Listen for messages from ChatGPT
+        if (typeof window.openai !== 'undefined') {
+            window.openai.onMessage((message) => {
+                console.log('Message from ChatGPT:', message);
+                // Handle messages and update UI accordingly
+            });
+        }
+
+        // Export functions for ChatGPT to call
+        window.renderRecommendations = renderRecommendations;
+        window.renderPredictiveSuggestion = renderPredictiveSuggestion;
+        window.showLoading = showLoading;
+    </script>
+</body>
+</html>
+

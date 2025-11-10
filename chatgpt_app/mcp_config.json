@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "pinecone-scout": {
+      "command": "python",
+      "args": [
+        "-m",
+        "app.mcp_server"
+      ],
+      "env": {
+        "PINECONE_API_KEY": "${PINECONE_API_KEY}",
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+      }
+    }
+  }
+}
+

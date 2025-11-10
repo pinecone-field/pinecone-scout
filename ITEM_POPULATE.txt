@@ -1,0 +1,202 @@
+[
+  {
+    "item_id": "item_bb_001",
+    "name": "Samsung 65-inch Class QLED 4K Q80C Series",
+    "category": "televisions",
+    "price": 1299.99,
+    "description": "Samsung 65-inch QLED 4K Smart TV with Quantum Dot technology, HDR10+, Object Tracking Sound, and Tizen OS. Features 4K upscaling, Game Mode, and voice control with Bixby and Alexa.",
+    "brand": "Samsung",
+    "features": ["QLED", "4K", "HDR10+", "Smart TV", "65-inch", "Quantum Dot", "Game Mode"],
+    "url": "https://www.bestbuy.com/site/samsung-65-inch-class-qled-4k-q80c-series-smart-tv/6537387.p"
+  },
+  {
+    "item_id": "item_bb_002",
+    "name": "LG 55-inch Class OLED C3 Series",
+    "category": "televisions",
+    "price": 1299.99,
+    "description": "LG 55-inch OLED 4K Smart TV with perfect blacks, infinite contrast, and Dolby Vision IQ. Features webOS, Magic Remote, and AI-powered picture and sound optimization.",
+    "brand": "LG",
+    "features": ["OLED", "4K", "Dolby Vision", "Smart TV", "55-inch", "Perfect Blacks", "webOS"],
+    "url": "https://www.bestbuy.com/site/lg-55-inch-class-oled-c3-series-4k-smart-tv/6535933.p"
+  },
+  {
+    "item_id": "item_bb_003",
+    "name": "Sony 75-inch Class BRAVIA XR X90L Series",
+    "category": "televisions",
+    "price": 1799.99,
+    "description": "Sony 75-inch 4K LED Smart TV with Cognitive Processor XR, Full Array LED with local dimming, and Google TV. Features Dolby Vision, IMAX Enhanced, and Acoustic Surface Audio.",
+    "brand": "Sony",
+    "features": ["4K", "Full Array LED", "Smart TV", "75-inch", "Cognitive Processor XR", "Google TV", "Dolby Vision"],
+    "url": "https://www.bestbuy.com/site/sony-75-inch-class-bravia-xr-x90l-series-4k-led-smart-tv/6537388.p"
+  },
+  {
+    "item_id": "item_bb_004",
+    "name": "Samsung 50-inch Class Crystal UHD 4K TU690T",
+    "category": "televisions",
+    "price": 379.99,
+    "description": "Samsung 50-inch 4K UHD Smart TV with Crystal Processor 4K, HDR, and Tizen OS. Budget-friendly option with 4K upscaling and voice control capabilities.",
+    "brand": "Samsung",
+    "features": ["4K UHD", "Smart TV", "50-inch", "HDR", "Budget", "Crystal Processor"],
+    "url": "https://www.bestbuy.com/site/samsung-50-inch-class-crystal-uhd-4k-tu690t-smart-tv/6537389.p"
+  },
+  {
+    "item_id": "item_bb_005",
+    "name": "LG 65-inch Class UQ7570 Series",
+    "category": "televisions",
+    "price": 499.99,
+    "description": "LG 65-inch 4K UHD Smart TV with webOS, Magic Remote, and AI Sound Pro. Features HDR10 Pro, Active HDR, and ThinQ AI for smart home integration.",
+    "brand": "LG",
+    "features": ["4K UHD", "Smart TV", "65-inch", "webOS", "HDR10 Pro", "AI Sound"],
+    "url": "https://www.bestbuy.com/site/lg-65-inch-class-uq7570-series-4k-uhd-smart-tv/6537390.p"
+  },
+  {
+    "item_id": "item_bb_006",
+    "name": "TCL 55-inch Class Q7 Series QLED 4K",
+    "category": "televisions",
+    "price": 599.99,
+    "description": "TCL 55-inch QLED 4K Smart TV with Quantum Dot technology, Full Array Local Dimming, and Google TV. Features HDR Pro Pack, Game Mode Pro, and voice control.",
+    "brand": "TCL",
+    "features": ["QLED", "4K", "Smart TV", "55-inch", "Full Array Local Dimming", "Google TV", "Game Mode"],
+    "url": "https://www.bestbuy.com/site/tcl-55-inch-class-q7-series-qled-4k-smart-tv/6537391.p"
+  },
+  {
+    "item_id": "item_bb_007",
+    "name": "Hisense 65-inch Class U8 Series ULED",
+    "category": "televisions",
+    "price": 899.99,
+    "description": "Hisense 65-inch ULED 4K Smart TV with Quantum Dot technology, Full Array Local Dimming, and Google TV. Features Dolby Vision HDR, 120Hz refresh rate, and Game Mode Pro.",
+    "brand": "Hisense",
+    "features": ["ULED", "4K", "Smart TV", "65-inch", "Quantum Dot", "120Hz", "Dolby Vision", "Game Mode"],
+    "url": "https://www.bestbuy.com/site/hisense-65-inch-class-u8-series-uled-4k-smart-tv/6537392.p"
+  },
+  {
+    "item_id": "item_bb_008",
+    "name": "Samsung 75-inch Class QLED 4K Q70C Series",
+    "category": "televisions",
+    "price": 1499.99,
+    "description": "Samsung 75-inch QLED 4K Smart TV with Quantum HDR, Object Tracking Sound Lite, and Tizen OS. Features 4K upscaling, Game Mode, and works with Alexa and Google Assistant.",
+    "brand": "Samsung",
+    "features": ["QLED", "4K", "Smart TV", "75-inch", "Quantum HDR", "Game Mode", "Object Tracking Sound"],
+    "url": "https://www.bestbuy.com/site/samsung-75-inch-class-qled-4k-q70c-series-smart-tv/6537393.p"
+  },
+  {
+    "item_id": "item_bb_009",
+    "name": "Sony 55-inch Class BRAVIA XR A80L Series OLED",
+    "category": "televisions",
+    "price": 1499.99,
+    "description": "Sony 55-inch OLED 4K Smart TV with Cognitive Processor XR, perfect blacks, and Google TV. Features Acoustic Surface Audio+, Dolby Vision, and IMAX Enhanced.",
+    "brand": "Sony",
+    "features": ["OLED", "4K", "Smart TV", "55-inch", "Cognitive Processor XR", "Perfect Blacks", "Google TV", "Dolby Vision"],
+    "url": "https://www.bestbuy.com/site/sony-55-inch-class-bravia-xr-a80l-series-oled-4k-smart-tv/6537394.p"
+  },
+  {
+    "item_id": "item_bb_010",
+    "name": "Vizio 65-inch Class M-Series Quantum",
+    "category": "televisions",
+    "price": 699.99,
+    "description": "Vizio 65-inch 4K UHD Smart TV with Quantum Color, Active Full Array, and SmartCast. Features HDR10+, Dolby Vision, and 120Hz effective refresh rate for smooth motion.",
+    "brand": "Vizio",
+    "features": ["4K", "Smart TV", "65-inch", "Quantum Color", "Active Full Array", "HDR10+", "Dolby Vision", "120Hz"],
+    "url": "https://www.bestbuy.com/site/vizio-65-inch-class-m-series-quantum-4k-uhd-smart-tv/6537395.p"
+  },
+  {
+    "item_id": "item_amz_001",
+    "name": "TCL 43-inch Class S4 Series 4K",
+    "category": "televisions",
+    "price": 229.99,
+    "description": "TCL 43-inch 4K UHD Smart TV with Google TV, HDR, and Dolby Vision. Budget-friendly 4K option with voice remote and Chromecast built-in.",
+    "brand": "TCL",
+    "features": ["4K UHD", "Smart TV", "43-inch", "Google TV", "HDR", "Dolby Vision", "Budget"],
+    "url": "https://www.amazon.com/dp/B0C1234567"
+  },
+  {
+    "item_id": "item_amz_002",
+    "name": "Samsung 55-inch Class Crystal UHD 4K CU7000",
+    "category": "televisions",
+    "price": 447.99,
+    "description": "Samsung 55-inch 4K UHD Smart TV with Crystal Processor 4K, HDR, and Tizen OS. Features 4K upscaling, voice control, and works with Alexa and Google Assistant.",
+    "brand": "Samsung",
+    "features": ["4K UHD", "Smart TV", "55-inch", "Crystal Processor", "HDR", "Tizen OS", "Voice Control"],
+    "url": "https://www.amazon.com/dp/B0C1234568"
+  },
+  {
+    "item_id": "item_amz_003",
+    "name": "LG 50-inch Class UQ70 Series 4K",
+    "category": "televisions",
+    "price": 329.99,
+    "description": "LG 50-inch 4K UHD Smart TV with webOS, Magic Remote, and AI Sound. Features HDR10 Pro, Active HDR, and ThinQ AI for seamless smart home control.",
+    "brand": "LG",
+    "features": ["4K UHD", "Smart TV", "50-inch", "webOS", "HDR10 Pro", "AI Sound", "Magic Remote"],
+    "url": "https://www.amazon.com/dp/B0C1234569"
+  },
+  {
+    "item_id": "item_amz_004",
+    "name": "Hisense 50-inch Class A6 Series 4K",
+    "category": "televisions",
+    "price": 279.99,
+    "description": "Hisense 50-inch 4K UHD Smart TV with Google TV, HDR, and Dolby Vision. Features voice control, Chromecast built-in, and DTS Virtual X audio.",
+    "brand": "Hisense",
+    "features": ["4K UHD", "Smart TV", "50-inch", "Google TV", "HDR", "Dolby Vision", "Voice Control"],
+    "url": "https://www.amazon.com/dp/B0C1234570"
+  },
+  {
+    "item_id": "item_amz_005",
+    "name": "Sony 65-inch Class X80K Series 4K",
+    "category": "televisions",
+    "price": 798.00,
+    "description": "Sony 65-inch 4K LED Smart TV with 4K HDR Processor X1, Triluminos Pro, and Google TV. Features Dolby Vision, IMAX Enhanced, and Acoustic Multi-Audio.",
+    "brand": "Sony",
+    "features": ["4K", "LED", "Smart TV", "65-inch", "4K HDR Processor X1", "Google TV", "Dolby Vision", "Triluminos Pro"],
+    "url": "https://www.amazon.com/dp/B0C1234571"
+  },
+  {
+    "item_id": "item_amz_006",
+    "name": "TCL 65-inch Class Q6 Series QLED 4K",
+    "category": "televisions",
+    "price": 599.99,
+    "description": "TCL 65-inch QLED 4K Smart TV with Quantum Dot technology, HDR Pro Pack, and Google TV. Features Game Mode, voice control, and Chromecast built-in.",
+    "brand": "TCL",
+    "features": ["QLED", "4K", "Smart TV", "65-inch", "Quantum Dot", "HDR Pro Pack", "Google TV", "Game Mode"],
+    "url": "https://www.amazon.com/dp/B0C1234572"
+  },
+  {
+    "item_id": "item_amz_007",
+    "name": "Samsung 43-inch Class The Frame QLED 4K",
+    "category": "televisions",
+    "price": 997.99,
+    "description": "Samsung 43-inch The Frame QLED 4K Smart TV designed to look like art when not in use. Features Quantum Dot technology, Art Mode, and customizable bezels.",
+    "brand": "Samsung",
+    "features": ["QLED", "4K", "Smart TV", "43-inch", "The Frame", "Art Mode", "Quantum Dot", "Design"],
+    "url": "https://www.amazon.com/dp/B0C1234573"
+  },
+  {
+    "item_id": "item_amz_008",
+    "name": "LG 55-inch Class C3 Series OLED 4K",
+    "category": "televisions",
+    "price": 1296.99,
+    "description": "LG 55-inch OLED 4K Smart TV with perfect blacks, infinite contrast, and Dolby Vision IQ. Features webOS, Magic Remote, and AI-powered picture optimization.",
+    "brand": "LG",
+    "features": ["OLED", "4K", "Smart TV", "55-inch", "Perfect Blacks", "Dolby Vision IQ", "webOS", "Magic Remote"],
+    "url": "https://www.amazon.com/dp/B0C1234574"
+  },
+  {
+    "item_id": "item_amz_009",
+    "name": "Sony 55-inch Class X90L Series 4K",
+    "category": "televisions",
+    "price": 1198.00,
+    "description": "Sony 55-inch 4K LED Smart TV with Cognitive Processor XR, Full Array LED with local dimming, and Google TV. Features Dolby Vision, IMAX Enhanced, and Acoustic Surface Audio.",
+    "brand": "Sony",
+    "features": ["4K", "Full Array LED", "Smart TV", "55-inch", "Cognitive Processor XR", "Google TV", "Dolby Vision", "Local Dimming"],
+    "url": "https://www.amazon.com/dp/B0C1234575"
+  },
+  {
+    "item_id": "item_amz_010",
+    "name": "Insignia 50-inch Class F30 Series 4K",
+    "category": "televisions",
+    "price": 249.99,
+    "description": "Insignia 50-inch 4K UHD Smart TV with Fire TV, HDR, and Alexa voice control. Budget-friendly option with 4K upscaling and access to streaming apps.",
+    "brand": "Insignia",
+    "features": ["4K UHD", "Smart TV", "50-inch", "Fire TV", "HDR", "Alexa", "Budget", "Streaming"],
+    "url": "https://www.amazon.com/dp/B0C1234576"
+  }
+]
