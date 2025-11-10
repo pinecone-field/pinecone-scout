@@ -60,6 +60,15 @@ class PredictiveModule:
             detected_topic = await self._detect_topic_advanced(enriched_context)
             logger.debug(f"Detected topic: {detected_topic}")
         
+        # If no topic detected, return empty response immediately
+        # No point in continuing if we can't identify what the user is talking about
+        if not detected_topic:
+            logger.debug("No topic detected, returning empty response")
+            return PredictiveSuggestResponse(
+                suggestion=None,
+                opt_in_required=False
+            )
+        
         # Check if suggestion is appropriate (don't be too pushy)
         # Use CURRENT context (not enriched) to focus on the current conversation topic
         # This prevents previous unrelated messages from triggering suggestions
